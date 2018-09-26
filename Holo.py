@@ -61,8 +61,8 @@ with open("Spotify\\regs.csv", 'r') as csvfile:
         Music.append(row[1])
 
 Rol = {}   
-s = open('Sover.txt', 'r').read()
-Rol = eval(s)
+#s = open('Sover.txt', 'r').read()
+#Rol = eval(s)
 
 client = Bot(description="Fun Bot by Agent_Orange", command_prefix="~", pm_help = False)
 RecNext = 0
@@ -773,6 +773,6 @@ async def on_command_error(error, ctx):
 
 ''' COMMAND ERROR END '''
 
-start_new_thread( client.run, ('NDc5MzQ1OTI2MjgxMTAxMzEy.DlcXkQ.qeQVstAvUTLFtTZxqlX9wicvpvA',) )
-#client.run('NDc5MzQ1OTI2MjgxMTAxMzEy.DlcXkQ.qeQVstAvUTLFtTZxqlX9wicvpvA')
+start_new_thread( client.run, ('',) )
+#client.run('')
 

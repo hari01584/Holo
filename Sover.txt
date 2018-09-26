@@ -23,3 +23,7 @@
  '★ Fedora Saboteurs ★': 'MOD TEMP. REMVD.',
  '༺✯ The Champion ✯༻': 'The Champion',
  '★ Knight General ★': 'Admin'}
+ 
+[Guest of Honor] Thayde
+[Singer] PaulTerVoorde
+[Inquisitor] Saeed
