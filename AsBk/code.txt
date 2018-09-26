@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IMGBRK
+{
+    class Program
+    {
+        public static int High = 0;
+        public static string name = "";
+        [STAThread]
+        static void Main(string[] args)
+        {
+            Directory.SetCurrentDirectory(@"C:\Users\Harishankar\Desktop\Holo");
+            Bitmap Org = new Bitmap(@".\temp.png");
+            List<bool> iHash1 = GetHash(Org);
+
+
+            foreach (string fileName in Directory.GetFiles(@".\assets"))
+            {
+                string fn = fileName.Split(new string[] { "assets\\" }, StringSplitOptions.None)[1];
+                if (!fn.Contains(".png"))
+                {
+                    continue;
+                }
+                List<bool> iHash2 = GetHash(new Bitmap(fileName));
+                int equalElements = iHash1.Zip(iHash2, (i, j) => i == j).Count(eq => eq);
+                if (High == 0)
+                {
+                    High = equalElements;
+                }
+                else if (equalElements > High)
+                {
+                    High = equalElements;
+                    name = fn;
+                }
+                Console.WriteLine(equalElements+" "+fn);
+            }
+            string clip = name;
+            clip = clip.Substring(0, clip.Length - 4);
+            Clipboard.SetText("p!catch "+clip);
+            Console.WriteLine("HIGHEST:" + High + " Name: " + name);
+        }
+
+
+        public static List<bool> GetHash(Bitmap bmpSource)
+        {
+            List<bool> lResult = new List<bool>();
+            //create new image with 16x16 pixel
+            Bitmap bmpMin = new Bitmap(bmpSource, new Size(16, 16));
+            for (int j = 0; j < bmpMin.Height; j++)
+            {
+                for (int i = 0; i < bmpMin.Width; i++)
+                {
+                    //reduce colors to true / false                
+                    lResult.Add(bmpMin.GetPixel(i, j).GetBrightness() < 0.5f);
+                }
+            }
+            return lResult;
+        }
+
+    }
+}
