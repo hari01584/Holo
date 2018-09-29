@@ -773,6 +773,10 @@ async def on_command_error(error, ctx):
 
 ''' COMMAND ERROR END '''
 
+<<<<<<< HEAD
 start_new_thread( client.run, (os.environ['token'],) )
+=======
+start_new_thread( client.run, ('',) )
+>>>>>>> 226cebbe615632e11b0bd587d4434f82309805da
 #client.run('')
 
