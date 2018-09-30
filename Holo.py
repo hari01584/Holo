@@ -59,7 +59,9 @@ VirusUser = [item[0] for item in cursor.fetchall()]
 Music = []
 
 r = requests.get("https://spotifycharts.com/regional/global/daily/latest/download", allow_redirects=True)
-readCSV = csv.reader(r.content, delimiter=',')
+decoded_content = r.content.decode('utf-8')
+
+readCSV = csv.reader(decoded_content.splitlines(), delimiter=',')
 for row in readCSV:
     Music.append(row[1])
 
