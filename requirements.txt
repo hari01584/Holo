@@ -1,6 +1,5 @@
 discord
 requests
-urllib.request
 requests
 numpy
 PIL
