@@ -34,7 +34,7 @@ def IsInt(s):
         return True
     except ValueError:
         return False
-
+'''
 # START INIT PDISOCRD
 mydb = mysql.connector.connect(
   host="localhost",
@@ -48,7 +48,7 @@ cursor = mydb.cursor(prepared=True)
 VirusUser = []
 cursor.execute("SELECT uid FROM Virus;")
 VirusUser = [item[0] for item in cursor.fetchall()]
-
+'''
 
 Music = []
 
