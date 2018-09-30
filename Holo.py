@@ -13,8 +13,6 @@ import requests
 import re
 import csv
 import json
-import urllib.request
-import requests
 import numpy as np
 from PIL import Image
 import cv2
