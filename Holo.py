@@ -177,8 +177,8 @@ async def on_message(message):
         Catch = 0
 
 
-    if(int(message.author.id) in VirusUser):
-        await AddXP(message)
+    #if(int(message.author.id) in VirusUser):
+        #await AddXP(message)
 
 
     
