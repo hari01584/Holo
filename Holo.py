@@ -15,7 +15,6 @@ import csv
 import json
 import numpy as np
 from PIL import Image
-import cv2
 import hashlib
 import os, sys
 import io
