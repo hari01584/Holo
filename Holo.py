@@ -23,7 +23,7 @@ from Config import Virus
 from Config import Shop
 import mysql.connector
 from _thread import start_new_thread
-from tkinter import Tk
+#from tkinter import Tk
 from PIL import Image,ImageDraw
 import matplotlib.pyplot as plt;
 
