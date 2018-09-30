@@ -52,10 +52,10 @@ VirusUser = [item[0] for item in cursor.fetchall()]
 
 Music = []
 
-with open("Spotify\\regs.csv", 'r') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
-    for row in readCSV:
-        Music.append(row[1])
+r = requests.get("https://spotifycharts.com/regional/global/daily/latest/download", allow_redirects=True)
+readCSV = csv.reader(r.content, delimiter=',')
+for row in readCSV:
+    Music.append(row[1])
 
 Rol = {}   
 #s = open('Sover.txt', 'r').read()
