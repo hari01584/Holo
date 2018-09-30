@@ -27,7 +27,13 @@ from _thread import start_new_thread
 from PIL import Image,ImageDraw
 import matplotlib.pyplot as plt;
 
-
+on_heroku = False
+if 'token' in os.environ:
+    on_heroku = True
+else:
+    file = open("secret.txt","r")
+    os.environ['token'] = file.read()
+  
 def IsInt(s):
     try: 
         int(s)
