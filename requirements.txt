@@ -1,10 +1,6 @@
 discord
 requests
-<<<<<<< HEAD
-=======
-requests
->>>>>>> e9e1340fea1a12b904f299db0bf650b812dbede4
 numpy
 Pillow
-tkinter
 matplotlib
+opencv-python
