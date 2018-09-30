@@ -3,4 +3,3 @@ requests
 numpy
 Pillow
 matplotlib
-opencv-python
