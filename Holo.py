@@ -779,5 +779,5 @@ async def on_command_error(error, ctx):
 
 #start_new_thread( client.run, (os.environ['token'],) )
 #start_new_thread( client.run, ('',) )
-client.run(token)
+client.run(token.strip())
 
