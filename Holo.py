@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
  # These are the dependecies. The bot depends on these to function, hence the name. Please do not change these unless your adding to them, because they can break the bot.
 import discord
 import asyncio
