@@ -1,6 +1,7 @@
 Virus = {}
-Virus["Eutqb"] = [20000,40,70,40]
-Virus["Berna"] = [15000,70,20,40]
+Virus["Corona"] = [20000,45,25,40]
+Virus["Eutqb"] = [10000,40,20,40]
+Virus["Berna"] = [7000,35,15,40]
 Virus["Boboka"] = [5000,30,10,10]
 Virus["KawaiiVirus"] = [0,10,10,10]
 

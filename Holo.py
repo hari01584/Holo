@@ -27,12 +27,9 @@ from _thread import start_new_thread
 from PIL import Image,ImageDraw
 import matplotlib.pyplot as plt;
 
-on_heroku = False
-if 'token' in os.environ:
-    on_heroku = True
-else:
-    file = open("secret.txt","r")
-    os.environ['token'] = file.read()
+
+file = open("secret.txt","r")
+token = file.read()
   
 def IsInt(s):
     try: 
@@ -40,7 +37,8 @@ def IsInt(s):
         return True
     except ValueError:
         return False
-'''
+
+
 # START INIT PDISOCRD
 mydb = mysql.connector.connect(
   host="localhost",
@@ -54,7 +52,7 @@ cursor = mydb.cursor(prepared=True)
 VirusUser = []
 cursor.execute("SELECT uid FROM Virus;")
 VirusUser = [item[0] for item in cursor.fetchall()]
-'''
+
 
 Music = []
 
@@ -156,7 +154,7 @@ def GetPoke(url):
     im.save("temp.png", "png")
 
     print("REACHED",url)
-    exc = "C:\\Users\\Harishankar\\Documents\\Visual Studio 2012\\Projects\\IMGBRK\\IMGBRK\\bin\\Release\\IMGBRK.exe"
+    exc = ".\IMGBRK.exe"
     launchWithoutConsole(exc, ["", ""])
     data = Tk().clipboard_get()
     return data[8:]
@@ -177,8 +175,8 @@ async def on_message(message):
         Catch = 0
 
 
-    #if(int(message.author.id) in VirusUser):
-        #await AddXP(message)
+    if(int(message.author.id) in VirusUser):
+        await AddXP(message)
 
 
     
@@ -465,7 +463,7 @@ async def wallet(ctx):
 #    await client.change_nickname(mem, nickname)
 
 
-'''
+
 #PLAGUE DEV WORK EXP
 @client.group()
 async def plg():
@@ -541,6 +539,7 @@ async def info(ctx):
         for key, value in Virus.items():
             embed.add_field(name="***"+key+"***", value="**COST : "+str(value[0])+" Holo Coins**\n*BASE STATS*\n*1.Death Percentage - "+str(value[1])+"*\n*2.Adaptability - "+str(value[2])+"*\n*3.Spread Rate - "+str(value[3])+"*\n", inline=False)
 
+            
         embed.set_footer(text="~Made By Agent_Orange#9852")
         embed.add_field(name="Command Syntax",value="Do '~plg iselect (Virus Name)' To Select Virus.\n***Apostrophe And Brackets Are Not To Be Included In Command***",inline=True)
         await client.say(embed=embed)
@@ -762,10 +761,11 @@ async def map(ctx):
     im.save("./mtemp.jpg")
     embed=discord.Embed(title="MAP", description="NOTE : EACH RED DOT REPRESENTS 1000 INFECTED PEOPLE", color=0xffff80)
     embed.set_author(name=ctx.message.author.name)
-    embed.set_image(url="file:///C:/Users/Harishankar/Desktop/PythonFundamentals/gmap.jpg")
+    embed.set_image(url="./gmap.jpg")
     embed.set_footer(text="~Made By Agent_Orange#9852")
     await client.say(embed=embed)
-'''
+
+
 ''' COMMAND ERROR START '''
 @client.event
 async def on_command_error(error, ctx):
@@ -780,5 +780,5 @@ async def on_command_error(error, ctx):
 
 #start_new_thread( client.run, (os.environ['token'],) )
 #start_new_thread( client.run, ('',) )
-client.run(os.environ['token'])
+client.run(token)
 
