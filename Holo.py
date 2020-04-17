@@ -43,8 +43,8 @@ def IsInt(s):
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  passwd="root",
-  database="Users"
+  passwd="",
+  database="Holo"
 )
 
 cursor = mydb.cursor(prepared=True)
