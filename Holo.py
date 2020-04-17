@@ -41,8 +41,9 @@ def IsInt(s):
 
 # START INIT PDISOCRD
 mydb = mysql.connector.connect(
+  host="localhost",
   user="root",
-  passwd="",
+  passwd="root",
   database="Holo"
 )
 
