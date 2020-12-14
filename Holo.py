@@ -24,7 +24,7 @@ import io
 import subprocess
 from Config import Virus
 from Config import Shop
-import mysql.connector
+
 from _thread import start_new_thread
 #from tkinter import Tk
 from PIL import Image,ImageDraw
@@ -43,17 +43,12 @@ def IsInt(s):
 
 
 # START INIT PDISOCRD
-mydb = mysql.connector.connect(
-  user="root",
-  passwd="root",
-  database="Holo"
-)
 
-cursor = mydb.cursor(prepared=True)
 
-VirusUser = []
-cursor.execute("SELECT uid FROM Virus;")
-VirusUser = [item[0] for item in cursor.fetchall()]
+
+##VirusUser = []
+##cursor.execute("SELECT uid FROM Virus;")
+##VirusUser = [item[0] for item in cursor.fetchall()]
 
 
 Music = []
@@ -177,9 +172,9 @@ async def on_message(message):
         Catch = 0
 
 
-    if(int(message.author.id) in VirusUser):
-        await AddXP(message)
-
+##    if(int(message.author.id) in VirusUser):
+##        await AddXP(message)
+##
 
     
     if(mes=="~clear"):
